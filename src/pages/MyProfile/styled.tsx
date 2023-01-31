@@ -66,8 +66,13 @@ export const StyledMyProfile = styled.div`
       }
     }
     .chart {
+      position: relative;
       width: 100%;
       margin-top: 30px;
+      .btn-scroll {
+        position: absolute;
+        right: -70px;
+      }
     }
   }
   .row-exercise {

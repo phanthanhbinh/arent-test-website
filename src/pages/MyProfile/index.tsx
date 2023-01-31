@@ -1,9 +1,9 @@
 import Chart from '@/components/Chart';
 import DiaryModal from '@/components/DiaryModal';
-import { BookOutlined } from '@ant-design/icons';
+import { BookOutlined, UpOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-components';
 // import { useModel } from '@umijs/max';
-import { Button, Col, DatePicker, Form, List, Row, Select, Tooltip } from 'antd';
+import { Affix, Button, Col, DatePicker, Form, List, Row, Select, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import React, { useCallback, useEffect, useState } from 'react';
 import { dataDiaryDetailsMock, dataDiaryMock, dataExerciseMock } from './mockData';
@@ -58,7 +58,7 @@ const Welcome: React.FC = () => {
   return (
     <StyledMyProfile>
       <PageContainer title={false}>
-        <Row gutter={48}>
+        <Row gutter={48} id="top-page">
           <Col span={8} className="recommend">
             <div className="padding">
               <div className="image image-1">
@@ -138,6 +138,14 @@ const Welcome: React.FC = () => {
           </Row>
           <div className="chart">
             <Chart type={pickerType} />
+            <Affix className="btn-scroll" offsetTop={200} onChange={() => {}}>
+              <Button
+                type="primary"
+                shape="circle"
+                icon={<UpOutlined />}
+                onClick={() => handleClickScroll('top-page')}
+              />
+            </Affix>
           </div>
         </Row>
         <Row id="my-exercise" className="row-exercise">
