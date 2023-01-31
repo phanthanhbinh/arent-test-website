@@ -48,14 +48,14 @@ export default [
   {
     name: 'Challenge',
     icon: './icons/icon_challenge.svg',
-    path: '/Challenge',
-    component: './TableList',
+    path: '/challenge',
+    component: './MyProfile',
   },
   {
     name: 'Info',
     icon: './icons/icon_info.svg',
     path: '/infomation',
-    component: './TableList',
+    component: './MyProfile',
   },
   {
     path: '/',

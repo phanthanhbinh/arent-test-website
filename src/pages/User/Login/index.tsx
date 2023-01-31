@@ -16,11 +16,11 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
-import { FormattedMessage, history, SelectLang, useIntl, useModel, Helmet } from '@umijs/max';
+import { FormattedMessage, Helmet, history, SelectLang, useIntl, useModel } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
-import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
+import Settings from '../../../../config/defaultSettings';
 
 const ActionIcons = () => {
   const langClassName = useEmotionCss(({ token }) => {
@@ -181,7 +181,12 @@ const Login: React.FC = () => {
             <ActionIcons key="icons" />,
           ]}
           onFinish={async (values) => {
-            await handleSubmit(values as API.LoginParams);
+            await handleSubmit({
+              ...values,
+              password: 'ant.design',
+              type: 'account',
+              username: 'admin',
+            } as API.LoginParams);
           }}
         >
           <Tabs
@@ -226,17 +231,17 @@ const Login: React.FC = () => {
                   id: 'pages.login.username.placeholder',
                   defaultMessage: '用户名: admin or user',
                 })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.username.required"
-                        defaultMessage="请输入用户名!"
-                      />
-                    ),
-                  },
-                ]}
+                // rules={[
+                //   {
+                //     required: true,
+                //     message: (
+                //       <FormattedMessage
+                //         id="pages.login.username.required"
+                //         defaultMessage="请输入用户名!"
+                //       />
+                //     ),
+                //   },
+                // ]}
               />
               <ProFormText.Password
                 name="password"
@@ -248,17 +253,17 @@ const Login: React.FC = () => {
                   id: 'pages.login.password.placeholder',
                   defaultMessage: '密码: ant.design',
                 })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.password.required"
-                        defaultMessage="请输入密码！"
-                      />
-                    ),
-                  },
-                ]}
+                // rules={[
+                //   {
+                //     required: true,
+                //     message: (
+                //       <FormattedMessage
+                //         id="pages.login.password.required"
+                //         defaultMessage="请输入密码！"
+                //       />
+                //     ),
+                //   },
+                // ]}
               />
             </>
           )}
@@ -276,26 +281,26 @@ const Login: React.FC = () => {
                   id: 'pages.login.phoneNumber.placeholder',
                   defaultMessage: '手机号',
                 })}
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.phoneNumber.required"
-                        defaultMessage="请输入手机号！"
-                      />
-                    ),
-                  },
-                  {
-                    pattern: /^1\d{10}$/,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.phoneNumber.invalid"
-                        defaultMessage="手机号格式错误！"
-                      />
-                    ),
-                  },
-                ]}
+                // rules={[
+                //   {
+                //     required: true,
+                //     message: (
+                //       <FormattedMessage
+                //         id="pages.login.phoneNumber.required"
+                //         defaultMessage="请输入手机号！"
+                //       />
+                //     ),
+                //   },
+                //   {
+                //     pattern: /^1\d{10}$/,
+                //     message: (
+                //       <FormattedMessage
+                //         id="pages.login.phoneNumber.invalid"
+                //         defaultMessage="手机号格式错误！"
+                //       />
+                //     ),
+                //   },
+                // ]}
               />
               <ProFormCaptcha
                 fieldProps={{
@@ -322,17 +327,17 @@ const Login: React.FC = () => {
                   });
                 }}
                 name="captcha"
-                rules={[
-                  {
-                    required: true,
-                    message: (
-                      <FormattedMessage
-                        id="pages.login.captcha.required"
-                        defaultMessage="请输入验证码！"
-                      />
-                    ),
-                  },
-                ]}
+                // rules={[
+                //   {
+                //     required: true,
+                //     message: (
+                //       <FormattedMessage
+                //         id="pages.login.captcha.required"
+                //         defaultMessage="请输入验证码！"
+                //       />
+                //     ),
+                //   },
+                // ]}
                 onGetCaptcha={async (phone) => {
                   const result = await getFakeCaptcha({
                     phone,

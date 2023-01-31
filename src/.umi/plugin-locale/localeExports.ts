@@ -5,11 +5,11 @@ import {
   createIntl,
   IntlShape,
   MessageDescriptor,
-} from '/Users/phanthanhbinh/Project/arent-test-website/node_modules/@umijs/plugins/node_modules/react-intl';
+} from '/Users/phanthanhbinh/Project/arent-test-website/node_modules/react-intl';
 import { getPluginManager } from '../core/plugin';
 import EventEmitter from '/Users/phanthanhbinh/Project/arent-test-website/node_modules/event-emitter';
 // @ts-ignore
-import warning from '/Users/phanthanhbinh/Project/arent-test-website/node_modules/warning';
+import warning from '/Users/phanthanhbinh/Project/arent-test-website/node_modules/@umijs/plugins/node_modules/warning';
 
 export {
   createIntl,
@@ -34,7 +34,7 @@ export {
   defineMessages,
   injectIntl,
   useIntl,
-} from '/Users/phanthanhbinh/Project/arent-test-website/node_modules/@umijs/plugins/node_modules/react-intl';
+} from '/Users/phanthanhbinh/Project/arent-test-website/node_modules/react-intl';
 
 let g_intl: IntlShape;
 
